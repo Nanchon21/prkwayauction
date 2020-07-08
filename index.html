@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  	
+  	<title>Auction</title>
+  </head>
+  <body>
+
+<img src="assets/car.jpg" alt="car photo" width="100" height="100"> 
+  <h1>Auction</h1>
+  <div id ="topp">
+  <h4 id="showBid">MY BID:</h4>
+  <span id="dummySpan">0 Tokens</span>
+  <span id=myBidDisp ></span>
+
+  <h4 id="numOfBidders">Active Bidders:</h4>
+  <span id="dummySpan2">1 Bidder</span>
+  <button id="increaseBidders" onclick="increase()">increment</button>
+  <span id="bidderDisp"></span>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item ">
+      <div>
+        <p>TIME REMAINING:</p> <p id="timefield"></p><p id="timefield2"></p>
+        
+      </div>
+      </li>
+    <li class="list-group-item ">
+      <div>
+        <p>STARTING PRICE:</p><p id="stra"></p>
+        </div>
+      </li>
+    <li class="list-group-item ">
+      <p>CURRENT HIGHEST BID:</p><p id="chb">0 Tokens</p>
+    </li>   
+    <li class="list-group-item">
+      <div class="text-success">
+        <p>Enter bid amount:</p><input type="number" id="bid"></input><button id="nowb" onclick="bidnow()">BID NOW</button><br><br>
+        <button id="buynowButton" onclick="buynow()">BUY NOW</button> <p id="initial">125 Tokens</p><p id="bnow"></p>
+        
+</div>
+    </li>
+  
+
+	
+</p></body>
+
+<script>
+  function increase(){
+    activeBidders+= 1;
+    document.getElementById("bidderDisp").innerHTML=activeBidders + "Bidders";
+  }
+
+
+  const inputTextField =document.getElementById("buynowButton");
+  inputTextField.onclick=(function(){
+  const textToSave =inputTextField.value;
+  console.log("the saved value is"+textToSave);
+
+   })
+    var win=false;
+    activeBidders=2;
+    rateModify=2;
+    function AddMinutesToDate(date, minutes) {
+    return new Date(new Date().getTime() + minutes * 60000);
+}
+  // Set the date we're counting down to
+  var countDownDate = AddMinutesToDate(countDownDate, 10);
+  // Update the count down every 1 second
+   x = setInterval(function() {
+  
+    // Get today's date and time
+    var now = new Date().getTime();
+      
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    //Use the remaining time (distance) to increment the number of bidders
+    if (distance %11==0){
+      activeBidders+=1;
+      updateBidders()
+    }
+      
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+    // Output the result in an element with id="demo"
+    document.getElementById("timefield").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+      
+    // If the count down is over, write some text 
+    if (distance < 0) {
+      
+      clearInterval(x);
+      document.getElementById("timefield").innerHTML = "EXPIRED";
+      document.getElementById("nowb").disabled = true;
+      document.getElementById("buynowButton").disabled = true;
+      function alert3pm() {
+        if(myBid=curbid){
+          alert("You have won this auction")
+          win=true;
+          console.log(win);
+        }
+    alert("The auction has expired!");
+  }
+  setTimeout(alert3pm, distance);
+    }
+  }, 1000);
+
+  function updateBidders(){
+    if (activeBidders>1){
+    rate+=newRate;
+  }
+  }
+  document.getElementById("myBidDisp").style.visibility="hidden";
+document.getElementById("bidderDisp").style.visibility="hidden";
+
+document.getElementById("timefield2").style.visibility = "hidden";
+
+
+   var bnw=0;
+   var startPrice=50;
+   var newRate= rateModify*activeBidders;
+   var rate=5;
+
+document.getElementById("bnow").style.visibility = "hidden";
+document.getElementById("stra").innerHTML = startPrice + " Tokens";
+
+
+
+  function buynow(){
+    document.getElementById("timefield").style.display = "none";
+    document.getElementById("timefield2").innerHTML = "00:00";
+    document.getElementById("timefield2").style.visibility = "visible";
+    document.getElementById("initial").style.display = "none";
+    document.getElementById("bnow").style.visibility = "visible";
+    if (bnw==0){
+      bnw=125;
+      document.getElementById("bnow").style.visibility = "hidden";
+    }
+    document.getElementById("chb").innerHTML = bnw + " Tokens";
+    document.getElementById("nowb").disabled = true;
+    document.getElementById("buynowButton").disabled = true;
+    win=true;
+    console.log(win);
+    alert("You have purchased the parking space for " + bnw +" tokens")
+}
+ 
+   var curbid=0;
+   var m=0;
+  var myBid=0;
+
+  function bidnow(){
+      var bidinp=document.getElementById("bid").value;
+      //DO NOT REMOVE THE BELOW
+      bidinp++;
+      curbid++;
+      bidinp--;
+      curbid--;
+      //DO NOT REMOVE THE ABOVE
+      lowest=curbid+rate;
+   if (bidinp>=lowest){
+        if (bidinp>curbid && bidinp>=startPrice){
+            curbid=bidinp;
+            bnw=curbid*2.5;
+            document.getElementById("initial").style.display = "none";
+        document.getElementById("bnow").style.visibility = "visible";
+            document.getElementById("chb").innerHTML = bidinp + "Tokens";
+         document.getElementById("bnow").innerHTML = bnw +"Tokens";
+        }else if (bidinp<=curbid){
+          alert("Please place a bid higher than the current bid!");
+        }else if (bidinp<startPrice){
+          alert("Please place a bid higher than the starting bid!")
+        }
+    }else{
+      alert("Your bid must be atleast "+rate+" tokens greater than the current highest bid!" +newRate)
+    }
+    myBid=curbid;
+    document.getElementById("myBidDisp").innerHTML=myBid +"Tokens";
+    document.getElementById("dummySpan").style.display="none";
+    document.getElementById("myBidDisp").style.visibility="visible";
+    rate=newRate;
+    ;
+  }
+  
+   document.getElementById("bidderDisp").innerHTML=activeBidders +"Bidders";
+    document.getElementById("dummySpan2").style.display="none";
+    document.getElementById("bidderDisp").style.visibility="visible";
+
+  </script>
+</html>
+
+<!--
+  # of bidders
+  Time remaining
+  
+-->

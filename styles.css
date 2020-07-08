@@ -1,0 +1,106 @@
+body {
+    background-color: #e6e3e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    width:100%;
+  }
+
+  h1{
+      padding-left: 50px;
+  }
+
+  img{
+      padding-left: 50px;
+  }
+  
+  p {
+    position: relative;
+  width: 100%;
+  padding-right: 15px;
+  
+  -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  
+  footer{
+      display: block;
+  }
+
+
+  .list-inline {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .list-inline-item {
+    display: inline-block;
+}
+
+button {
+    color: #fff;
+    background-color: #4295f5;
+    border-color: #4295f5;
+}
+      
+button:hover {
+    color: #fff;
+    background-color: #4149e0;
+    border-color: #4149e0;
+}
+
+.list-group-item-action {
+  width: 100%;
+  color: #495057;
+  text-align: inherit;
+}
+
+.list-group-item-action:hover, .list-group-item-action:focus {
+  z-index: 1;
+  color: #495057;
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+
+.list-group-item-action:active {
+  color: #212529;
+  background-color: #e9ecef;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#topp{
+  padding-left: 35px;
+}
+.text-success {
+    color: #28a745 !important;
+  }
+  
+  a.text-success:hover, a.text-success:focus {
+    color: #19692c !important;
+  }
+
+  #buynow{
+      display: inline-block;
+      background-color:#d64636;
+      border-color: #d64636;
+  }
+
+  #buynow:hover{
+      background-color:#5d2d7d ;
+      border-color:#5d2d7d ;
+  }
+
+  #initial{
+      display: inline-block;
+  }
